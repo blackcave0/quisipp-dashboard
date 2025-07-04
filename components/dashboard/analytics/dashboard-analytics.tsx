@@ -150,20 +150,20 @@ export function DashboardAnalytics({ userRole }: DashboardAnalyticsProps) {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold">
+      <div className="space-y-4 sm:space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-bold">
             {currentUserRole === "admin" ? "System Analytics" : "My Business Analytics"}
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             {currentUserRole === "admin"
               ? "Comprehensive system-wide analytics and insights"
               : "Your business performance and insights"}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-40">
+            <SelectTrigger className="w-full sm:w-40">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -173,14 +173,18 @@ export function DashboardAnalytics({ userRole }: DashboardAnalyticsProps) {
               <SelectItem value="1year">Last Year</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline" onClick={() => handleExportReport("pdf")}>
-            <Download className="h-4 w-4 mr-2" />
-            Export PDF
-          </Button>
-          <Button variant="outline" onClick={() => handleExportReport("csv")}>
-            <FileText className="h-4 w-4 mr-2" />
-            Export CSV
-          </Button>
+          <div className="flex gap-2 sm:gap-3">
+            <Button variant="outline" onClick={() => handleExportReport("pdf")} className="flex-1 sm:flex-none">
+              <Download className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Export PDF</span>
+              <span className="sm:hidden">PDF</span>
+            </Button>
+            <Button variant="outline" onClick={() => handleExportReport("csv")} className="flex-1 sm:flex-none">
+              <FileText className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Export CSV</span>
+              <span className="sm:hidden">CSV</span>
+            </Button>
+          </div>
         </div>
       </div>
 

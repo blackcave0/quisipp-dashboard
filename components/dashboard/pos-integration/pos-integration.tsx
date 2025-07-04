@@ -341,17 +341,17 @@ export function POSIntegration() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold">POS Integration</h2>
-          <p className="text-gray-600">Connect and manage your Point of Sale systems</p>
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+        <div className="w-full lg:w-auto">
+          <h2 className="text-xl lg:text-2xl font-bold">POS Integration</h2>
+          <p className="text-sm lg:text-base text-gray-600">Connect and manage your Point of Sale systems</p>
         </div>
-        <div className="flex gap-2">
-          <Button onClick={handleBulkSync} variant="outline">
+        <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+          <Button onClick={handleBulkSync} variant="outline" className="w-full sm:w-auto">
             <RefreshCw className="h-4 w-4 mr-2" />
             Sync All
           </Button>
-          <Button variant="outline">
+          <Button variant="outline" className="w-full sm:w-auto">
             <Download className="h-4 w-4 mr-2" />
             Export Data
           </Button>

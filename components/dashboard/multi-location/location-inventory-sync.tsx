@@ -349,21 +349,21 @@ export function LocationInventorySync() {
           <h2 className="text-2xl font-bold">Multi-Location Inventory</h2>
           <p className="text-gray-600">Manage inventory across all store locations</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           <Dialog open={isTransferDialogOpen} onOpenChange={setIsTransferDialogOpen}>
             <DialogTrigger asChild>
-              <Button>
+              <Button className="w-full sm:w-auto">
                 <ArrowUpDown className="h-4 w-4 mr-2" />
                 Create Transfer
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="w-[95vw] max-w-md sm:max-w-lg md:max-w-xl">
               <DialogHeader>
                 <DialogTitle>Create Inventory Transfer</DialogTitle>
                 <DialogDescription>Transfer inventory between store locations</DialogDescription>
               </DialogHeader>
               <form onSubmit={handleCreateTransfer} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">From Location</label>
                     <Select
@@ -442,17 +442,17 @@ export function LocationInventorySync() {
                   />
                 </div>
 
-                <div className="flex justify-end gap-2">
-                  <Button type="button" variant="outline" onClick={() => setIsTransferDialogOpen(false)}>
+                <div className="flex flex-col sm:flex-row justify-end gap-2">
+                  <Button type="button" variant="outline" onClick={() => setIsTransferDialogOpen(false)} className="w-full sm:w-auto">
                     Cancel
                   </Button>
-                  <Button type="submit">Create Transfer</Button>
+                  <Button type="submit" className="w-full sm:w-auto">Create Transfer</Button>
                 </div>
               </form>
             </DialogContent>
           </Dialog>
 
-          <Button onClick={handleSyncInventory} disabled={isSyncing} variant="outline">
+          <Button onClick={handleSyncInventory} disabled={isSyncing} variant="outline" className="w-full sm:w-auto">
             <RefreshCw className={`h-4 w-4 mr-2 ${isSyncing ? "animate-spin" : ""}`} />
             Sync All
           </Button>

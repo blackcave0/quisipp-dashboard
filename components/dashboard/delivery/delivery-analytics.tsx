@@ -97,14 +97,14 @@ export function DeliveryAnalytics() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold">Delivery Analytics</h2>
-          <p className="text-gray-600">Comprehensive insights into delivery performance and customer satisfaction</p>
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+        <div className="w-full lg:w-auto">
+          <h2 className="text-xl lg:text-2xl font-bold">Delivery Analytics</h2>
+          <p className="text-sm lg:text-base text-gray-600">Comprehensive insights into delivery performance and customer satisfaction</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
           <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-40">
+            <SelectTrigger className="w-full sm:w-40">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -114,11 +114,11 @@ export function DeliveryAnalytics() {
               <SelectItem value="1year">Last Year</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline" onClick={() => handleExportReport("pdf")}>
+          <Button variant="outline" onClick={() => handleExportReport("pdf")} className="w-full sm:w-auto">
             <Download className="h-4 w-4 mr-2" />
             Export PDF
           </Button>
-          <Button variant="outline" onClick={() => handleExportReport("csv")}>
+          <Button variant="outline" onClick={() => handleExportReport("csv")} className="w-full sm:w-auto">
             <FileText className="h-4 w-4 mr-2" />
             Export CSV
           </Button>

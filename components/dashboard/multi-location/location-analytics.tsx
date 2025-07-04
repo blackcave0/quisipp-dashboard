@@ -92,14 +92,14 @@ export function LocationAnalytics() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold">Location Analytics</h2>
-          <p className="text-gray-600">Compare performance across all store locations</p>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6">
+        <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-bold">Location Analytics</h2>
+          <p className="text-sm sm:text-base text-gray-600">Compare performance across all store locations</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-40">
+            <SelectTrigger className="w-full sm:w-40">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -109,9 +109,10 @@ export function LocationAnalytics() {
               <SelectItem value="1year">Last Year</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={handleExportReport} variant="outline">
+          <Button onClick={handleExportReport} variant="outline" className="w-full sm:w-auto">
             <Download className="h-4 w-4 mr-2" />
-            Export Report
+            <span className="hidden sm:inline">Export Report</span>
+            <span className="sm:hidden">Export</span>
           </Button>
         </div>
       </div>
